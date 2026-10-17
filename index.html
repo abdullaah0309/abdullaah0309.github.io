@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -151,7 +151,7 @@
         .highlights li {
             position: relative; padding-left: 22px; margin-bottom: 8px; font-size: 0.95rem; color: var(--text-secondary);
         }
-        .highlights li::before { content: "▹"; position: absolute; left: 0; color: var(--cyan); }
+        .highlights li::before { content: "â–¹"; position: absolute; left: 0; color: var(--cyan); }
         .highlights li strong { color: var(--text-primary); }
 
         /* Future / In-Flight Slot */
@@ -226,9 +226,9 @@
             </p>
 
             <div class="meta-strip">
-                <div>🎓 Degree: <strong>B.E. in Electronics &amp; Communication (2028)</strong></div>
-                <div>🏛️ Institution: <strong>MVSR Engineering College</strong></div>
-                <div>🌍 Target: <strong>Global R&amp;D (NVIDIA, Qualcomm, AMD, Apple, Tenstorrent)</strong></div>
+                <div>ðŸŽ“ Degree: <strong>B.E. in Electronics &amp; Communication (2028)</strong></div>
+                <div>ðŸ›ï¸ Institution: <strong>MVSR Engineering College</strong></div>
+                <div>ðŸŒ Target: <strong>Global R&amp;D (NVIDIA, Qualcomm, AMD, Apple, Tenstorrent)</strong></div>
             </div>
 
             <div class="social-strip">
@@ -302,22 +302,22 @@
                 <div class="ascii-art">
 <pre>
    [ AMBA AXI4-Stream DMA (64-bit) ]      [ AMBA AXI4-Lite CSR Slave (32-bit) ]
-                 │                                        │
-                 ▼                                        ▼
-   ┌───────────────────────────────────────────────────────────────────────────┐
-   │            DOUBLE-BUFFERED PING-PONG SRAM SCRATCHPAD (4KB)                │
-   │  • Bank 0: Core Compute (Zero Stalls)                                     │
-   │  • Bank 1: DMA Background Streaming (100% Latency Hiding)                 │
-   │  • 1-Cycle Hardware Bank Swapping FSM                                     │
-   └─────────────────────────────────────┬─────────────────────────────────────┘
-                                         │ (Compressed Weights + 4-bit Meta)
-                                         ▼
-   ┌───────────────────────────────────────────────────────────────────────────┐
-   │                       2:4 SPARSE TENSOR DATAPATH                          │
-   │  • Zero-Latency Combinational Activation Crossbar Multiplexer             │
-   │  • Dual-MAC INT8 Signed Execution Tree                                    │
-   │  • 32-bit Signed Accumulator + Hardware Non-Linear ReLU                   │
-   └───────────────────────────────────────────────────────────────────────────┘
+                 â”‚                                        â”‚
+                 â–¼                                        â–¼
+   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+   â”‚            DOUBLE-BUFFERED PING-PONG SRAM SCRATCHPAD (4KB)                â”‚
+   â”‚  â€¢ Bank 0: Core Compute (Zero Stalls)                                     â”‚
+   â”‚  â€¢ Bank 1: DMA Background Streaming (100% Latency Hiding)                 â”‚
+   â”‚  â€¢ 1-Cycle Hardware Bank Swapping FSM                                     â”‚
+   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                         â”‚ (Compressed Weights + 4-bit Meta)
+                                         â–¼
+   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+   â”‚                       2:4 SPARSE TENSOR DATAPATH                          â”‚
+   â”‚  â€¢ Zero-Latency Combinational Activation Crossbar Multiplexer             â”‚
+   â”‚  â€¢ Dual-MAC INT8 Signed Execution Tree                                    â”‚
+   â”‚  â€¢ 32-bit Signed Accumulator + Hardware Non-Linear ReLU                   â”‚
+   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 </pre>
                 </div>
 
@@ -342,25 +342,25 @@
                             <td>Worst Negative Slack (WNS)</td>
                             <td>&ge; 0.00 ns</td>
                             <td class="val">+7.079 ns (Fast Corner: +0.152 ns)</td>
-                            <td>✅ Zero Violations</td>
+                            <td>âœ… Zero Violations</td>
                         </tr>
                         <tr>
                             <td>Maximum Frequency (f_max)</td>
                             <td>100 MHz</td>
                             <td class="val">~342.3 MHz (2.92 ns critical path)</td>
-                            <td>✅ +242% Margin</td>
+                            <td>âœ… +242% Margin</td>
                         </tr>
                         <tr>
                             <td>Total On-Chip Power</td>
                             <td>&lt; 150 mW</td>
                             <td class="val">97 mW (26 mW Dynamic, 70 mW Static)</td>
-                            <td>✅ Ultra-Low Power</td>
+                            <td>âœ… Ultra-Low Power</td>
                         </tr>
                         <tr>
                             <td>Cell Utilization</td>
                             <td>&lt; 500 LUTs</td>
                             <td class="val">202 Logic LUTs (0.97%), 32 FFs, 37 CARRY4</td>
-                            <td>✅ High Density</td>
+                            <td>âœ… High Density</td>
                         </tr>
                     </tbody>
                 </table>
@@ -412,7 +412,7 @@
 
             <!-- IN-FLIGHT / UPCOMING SLOT -->
             <div class="upcoming-card">
-                <h4>🚀 In-Flight Silicon R&amp;D (Next Roadmap Builds)</h4>
+                <h4>ðŸš€ In-Flight Silicon R&amp;D (Next Roadmap Builds)</h4>
                 <p>
                     Currently micro-architecting a <strong>5-stage Pipelined RV32IM RISC-V Core with Integrated AXI4 Master Interconnect</strong> to interface directly with the TITAN-SPARSE NPU for compiled C neural network execution.
                 </p>
@@ -426,7 +426,7 @@
             </div>
             <div class="skills-grid">
                 <div class="skill-box">
-                    <h4>⚡ HDLs &amp; Verification</h4>
+                    <h4>âš¡ HDLs &amp; Verification</h4>
                     <div class="tag-wrap">
                         <span class="s-tag">SystemVerilog (IEEE 1800)</span>
                         <span class="s-tag">Verilog HDL</span>
@@ -437,7 +437,7 @@
                     </div>
                 </div>
                 <div class="skill-box">
-                    <h4>🛠️ Silicon EDA Tools</h4>
+                    <h4>ðŸ› ï¸ Silicon EDA Tools</h4>
                     <div class="tag-wrap">
                         <span class="s-tag">AMD Vivado (Design Suite 2026.1)</span>
                         <span class="s-tag">KLayout (GDSII Layout)</span>
@@ -448,7 +448,7 @@
                     </div>
                 </div>
                 <div class="skill-box">
-                    <h4>📐 Architectures &amp; Protocols</h4>
+                    <h4>ðŸ“ Architectures &amp; Protocols</h4>
                     <div class="tag-wrap">
                         <span class="s-tag">AMBA AXI4-Lite</span>
                         <span class="s-tag">AMBA AXI4-Stream</span>
@@ -459,7 +459,7 @@
                     </div>
                 </div>
                 <div class="skill-box">
-                    <h4>🔬 Physical Design &amp; STA</h4>
+                    <h4>ðŸ”¬ Physical Design &amp; STA</h4>
                     <div class="tag-wrap">
                         <span class="s-tag">Static Timing Analysis (STA)</span>
                         <span class="s-tag">WNS / TNS Timing Closure</span>
@@ -478,7 +478,7 @@
                 <h3 style="margin-bottom: 14px;">About Mohammed Abdullah</h3>
                 <p>
                     I am an Electronics &amp; Communication Engineering student at <strong>MVSR Engineering College (Class of 2028)</strong>, dedicated to advancing digital silicon design. 
-                    Rather than building basic classroom-level circuits, I focus on solving the real engineering bottlenecks faced by semiconductor leaders like <strong>NVIDIA, Qualcomm, AMD, and Apple</strong>—specifically the <em>Memory Wall</em> and <em>sub-5nm energy dissipation</em>.
+                    Rather than building basic classroom-level circuits, I focus on solving the real engineering bottlenecks faced by semiconductor leaders like <strong>NVIDIA, Qualcomm, AMD, and Apple</strong>â€”specifically the <em>Memory Wall</em> and <em>sub-5nm energy dissipation</em>.
                 </p>
                 <p style="margin-top: 10px;">
                     Every architecture in my portfolio is taken through the full engineering rigor: from microarchitectural specification and mathematical modeling to synthesizable SystemVerilog, corner-case simulation, static timing closure, and physical GDSII layout.
