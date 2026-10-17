@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Abdullah | Digital IC Design & Hardware Architecture Portfolio</title>
+    <meta name="description" content="Universal Portfolio of Mohammed Abdullah - Digital IC Design, AI Silicon Accelerators, Computer Architecture, and Physical ASIC Design.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #06080d;
+            --bg-surface: #0c1017;
+            --bg-card: #121824;
+            --border-subtle: #1e2638;
+            --cyan: #00f0ff;
+            --cyan-glow: rgba(0, 240, 255, 0.12);
+            --emerald: #10b981;
+            --emerald-glow: rgba(16, 185, 129, 0.12);
+            --purple: #a855f7;
+            --amber: #f59e0b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+
+        code, pre, .mono { font-family: 'Fira Code', monospace; }
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navigation */
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(6, 8, 13, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 16px 0;
+        }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.1rem; font-weight: 700; color: var(--cyan); letter-spacing: -0.5px; }
+        .logo span { color: var(--text-primary); }
+        .nav-links { display: flex; gap: 24px; list-style: none; font-size: 0.9rem; font-weight: 500; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; transition: 0.2s; }
+        .nav-links a:hover { color: var(--cyan); }
+        .contact-cta {
+            background: linear-gradient(135deg, var(--cyan), #0284c7);
+            color: #000; font-weight: 600; font-size: 0.85rem;
+            padding: 8px 18px; border-radius: 6px; text-decoration: none;
+            transition: 0.2s;
+        }
+        .contact-cta:hover { box-shadow: 0 0 20px rgba(0,240,255,0.4); }
+
+        /* Hero */
+        .hero { padding: 80px 0 50px; }
+        .status-pill {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--cyan-glow); border: 1px solid var(--cyan);
+            color: var(--cyan); font-size: 0.8rem; font-weight: 600;
+            padding: 4px 14px; border-radius: 20px; margin-bottom: 24px;
+        }
+        .status-dot { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 8px var(--cyan); }
+        .hero h1 { font-size: 3.4rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.15; margin-bottom: 20px; }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #ffffff 40%, var(--cyan) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 1.15rem; color: var(--text-secondary); max-width: 860px; margin-bottom: 30px; }
+
+        .meta-strip {
+            display: flex; flex-wrap: wrap; gap: 20px; font-size: 0.9rem; color: var(--text-muted);
+            margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border-subtle);
+        }
+        .meta-strip strong { color: var(--text-primary); }
+
+        .social-strip { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 60px; }
+        .social-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--bg-surface); border: 1px solid var(--border-subtle);
+            color: var(--text-secondary); font-size: 0.85rem; font-weight: 500;
+            padding: 9px 16px; border-radius: 6px; text-decoration: none; transition: 0.2s;
+        }
+        .social-btn:hover { border-color: var(--cyan); color: var(--cyan); background: var(--bg-card); }
+
+        /* Universal Silicon Scorecard */
+        .scorecard {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px; margin-bottom: 70px;
+        }
+        .score-card {
+            background: var(--bg-surface); border: 1px solid var(--border-subtle);
+            border-radius: 10px; padding: 22px;
+        }
+        .score-num { font-size: 2.1rem; font-weight: 800; color: var(--cyan); line-height: 1; margin-bottom: 8px; }
+        .score-title { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .score-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+        /* Filter Controls */
+        .controls-row {
+            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+            gap: 16px; margin-bottom: 32px;
+        }
+        .filter-group { display: flex; flex-wrap: wrap; gap: 8px; }
+        .filter-btn {
+            background: var(--bg-surface); border: 1px solid var(--border-subtle);
+            color: var(--text-secondary); font-size: 0.85rem; font-weight: 500;
+            padding: 8px 16px; border-radius: 6px; cursor: pointer; transition: 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--cyan-glow); border-color: var(--cyan); color: var(--cyan);
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--bg-surface); border: 1px solid var(--border-subtle);
+            border-radius: 12px; padding: 36px; margin-bottom: 32px; transition: 0.3s;
+        }
+        .project-card:hover { border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+        .card-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            font-size: 0.75rem; font-family: 'Fira Code', monospace;
+            padding: 3px 10px; border-radius: 4px; border: 1px solid var(--border-subtle);
+            background: var(--bg-card); color: var(--cyan);
+        }
+        .tag.green { color: var(--emerald); border-color: rgba(16,185,129,0.3); }
+        .tag.purple { color: var(--purple); border-color: rgba(168,85,247,0.3); }
+
+        .project-card h3 { font-size: 1.7rem; font-weight: 800; margin-bottom: 12px; }
+        .project-card p { color: var(--text-secondary); font-size: 1rem; margin-bottom: 20px; line-height: 1.7; }
+
+        .ascii-art {
+            background: #030508; border: 1px solid var(--border-subtle);
+            border-radius: 6px; padding: 18px; margin: 20px 0; overflow-x: auto;
+            color: var(--cyan); font-size: 0.78rem; line-height: 1.35;
+        }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.85rem; }
+        .data-table th, .data-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border-subtle); }
+        .data-table th { background: var(--bg-card); color: var(--text-secondary); font-size: 0.75rem; text-transform: uppercase; }
+        .data-table td.val { color: var(--cyan); font-weight: 600; font-family: 'Fira Code', monospace; }
+
+        .highlights { list-style: none; margin: 16px 0; }
+        .highlights li {
+            position: relative; padding-left: 22px; margin-bottom: 8px; font-size: 0.95rem; color: var(--text-secondary);
+        }
+        .highlights li::before { content: "▹"; position: absolute; left: 0; color: var(--cyan); }
+        .highlights li strong { color: var(--text-primary); }
+
+        /* Future / In-Flight Slot */
+        .upcoming-card {
+            border: 1px dashed var(--border-subtle); background: rgba(12, 16, 23, 0.4);
+            border-radius: 12px; padding: 30px; text-align: center; margin-bottom: 60px;
+        }
+        .upcoming-card h4 { font-size: 1.1rem; color: var(--text-primary); margin-bottom: 8px; }
+        .upcoming-card p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        /* Competencies Grid */
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px; margin-bottom: 70px;
+        }
+        .skill-box {
+            background: var(--bg-surface); border: 1px solid var(--border-subtle);
+            border-radius: 10px; padding: 22px;
+        }
+        .skill-box h4 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--text-primary); }
+        .tag-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+        .s-tag {
+            background: var(--bg-card); border: 1px solid var(--border-subtle);
+            font-size: 0.78rem; padding: 4px 10px; border-radius: 4px; color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle); padding: 40px 0;
+            text-align: center; color: var(--text-muted); font-size: 0.85rem;
+        }
+        footer a { color: var(--cyan); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
+            .nav-links { display: none; }
+            .project-card { padding: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-inner">
+            <div class="logo">MOHAMMED <span>ABDULLAH</span></div>
+            <ul class="nav-links">
+                <li><a href="#projects">All Architectures</a></li>
+                <li><a href="#skills">Toolchains &amp; Skills</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <a href="mailto:abdullahclass399@gmail.com" class="contact-cta">Get in Touch</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="status-pill">
+                <span class="status-dot"></span>
+                Digital IC Design &bull; Computer Architecture &bull; RTL-to-GDSII
+            </div>
+            <h1>
+                Designing High-Throughput,<br>
+                <span class="highlight">Memory-Aware Silicon Architectures.</span>
+            </h1>
+            <p>
+                Electronics &amp; Communication Engineering undergraduate at <strong>MVSR Engineering College</strong> (Class of 2028). 
+                Focused on solving the <strong>Memory Wall and Power Bottlenecks</strong> in next-generation silicon through 
+                <strong>2:4 structured sparsity accelerators, low-power adaptive datapaths, and AMBA AXI4 interconnects</strong>. 
+                Proven timing closure, physical routing, and GDSII physical layout.
+            </p>
+
+            <div class="meta-strip">
+                <div>🎓 Degree: <strong>B.E. in Electronics &amp; Communication (2028)</strong></div>
+                <div>🏛️ Institution: <strong>MVSR Engineering College</strong></div>
+                <div>🌍 Target: <strong>Global R&amp;D (NVIDIA, Qualcomm, AMD, Apple, Tenstorrent)</strong></div>
+            </div>
+
+            <div class="social-strip">
+                <a href="https://github.com/abdullaah0309" target="_blank" class="social-btn">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub (abdullaah0309)
+                </a>
+                <a href="https://www.linkedin.com/in/abdullah-ece-mvsr" target="_blank" class="social-btn">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="mailto:abdullahclass399@gmail.com" class="social-btn">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    abdullahclass399@gmail.com
+                </a>
+            </div>
+
+            <!-- Global Silicon Scorecard -->
+            <div class="scorecard">
+                <div class="score-card">
+                    <div class="score-num">~342 MHz</div>
+                    <div class="score-title">Max Verified Frequency</div>
+                    <div class="score-sub">AMD Artix-7 28nm Fabric</div>
+                </div>
+                <div class="score-card">
+                    <div class="score-num">+7.079 ns</div>
+                    <div class="score-title">Timing Setup Slack</div>
+                    <div class="score-sub">0 failing endpoints @ 100 MHz</div>
+                </div>
+                <div class="score-card">
+                    <div class="score-num">26 mW</div>
+                    <div class="score-title">Dynamic Compute Power</div>
+                    <div class="score-sub">97 mW Total On-Chip Power</div>
+                </div>
+                <div class="score-card">
+                    <div class="score-num">108 Pads</div>
+                    <div class="score-title">Full ASIC GDSII Layout</div>
+                    <div class="score-sub">Dual VDD/VSS Power Rings</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Filter & Container -->
+        <section id="projects">
+            <div class="controls-row">
+                <h2>Verified Silicon Projects</h2>
+                <div class="filter-group">
+                    <button class="filter-btn active" onclick="filterProjects('all')">All Builds</button>
+                    <button class="filter-btn" onclick="filterProjects('ai')">AI / NPU Accelerators</button>
+                    <button class="filter-btn" onclick="filterProjects('cpu')">CPU &amp; Datapath</button>
+                    <button class="filter-btn" onclick="filterProjects('asic')">ASIC &amp; Physical GDSII</button>
+                </div>
+            </div>
+
+            <!-- PROJECT 1: TITAN-SPARSE -->
+            <div class="project-card" data-category="ai asic">
+                <div class="card-top">
+                    <div class="card-tags">
+                        <span class="tag">FLAGSHIP ARCHITECTURE</span>
+                        <span class="tag green">WNS = +7.08ns @ 100MHz</span>
+                        <span class="tag purple">AMBA AXI4 COMPLIANT</span>
+                    </div>
+                </div>
+                <h3>TITAN-SPARSE: 2:4 Structured Sparse Tensor Core NPU</h3>
+                <p>
+                    Data movement from SRAM and DRAM consumes over 80% of total chip energy in modern deep learning accelerators. 
+                    <strong>TITAN-SPARSE</strong> solves this memory bandwidth bottleneck by implementing <strong>NVIDIA Ampere/Hopper-style 2:4 structured sparsity</strong>. 
+                    For every block of 4 weights, memory transmits only the 2 non-zero weights and a 4-bit metadata tag, cutting raw SRAM read bandwidth by <strong>50%</strong> while doubling compute density.
+                </p>
+
+                <div class="ascii-art">
+<pre>
+   [ AMBA AXI4-Stream DMA (64-bit) ]      [ AMBA AXI4-Lite CSR Slave (32-bit) ]
+                 │                                        │
+                 ▼                                        ▼
+   ┌───────────────────────────────────────────────────────────────────────────┐
+   │            DOUBLE-BUFFERED PING-PONG SRAM SCRATCHPAD (4KB)                │
+   │  • Bank 0: Core Compute (Zero Stalls)                                     │
+   │  • Bank 1: DMA Background Streaming (100% Latency Hiding)                 │
+   │  • 1-Cycle Hardware Bank Swapping FSM                                     │
+   └─────────────────────────────────────┬─────────────────────────────────────┘
+                                         │ (Compressed Weights + 4-bit Meta)
+                                         ▼
+   ┌───────────────────────────────────────────────────────────────────────────┐
+   │                       2:4 SPARSE TENSOR DATAPATH                          │
+   │  • Zero-Latency Combinational Activation Crossbar Multiplexer             │
+   │  • Dual-MAC INT8 Signed Execution Tree                                    │
+   │  • 32-bit Signed Accumulator + Hardware Non-Linear ReLU                   │
+   └───────────────────────────────────────────────────────────────────────────┘
+</pre>
+                </div>
+
+                <ul class="highlights">
+                    <li><strong>Zero-Latency Activation Crossbar:</strong> Uses 4-bit metadata pointers to dynamically extract and route matching dense activations to dual INT8 multipliers in 0 clock cycles.</li>
+                    <li><strong>Ping-Pong Latency Hiding:</strong> Twin 16-word scratchpad SRAM architecture allows prefetching Tile N+1 in the background over DMA while the core executes Tile N without pipeline bubbles.</li>
+                    <li><strong>Pipeline-Matched Read Latency:</strong> Micro-architected 1-cycle pipeline control registers to eliminate SRAM read latency hazards and prevent uninitialized $X$-state propagation.</li>
+                    <li><strong>AMBA AXI4 Compliance:</strong> Feature-complete AXI4-Lite slave for CPU runtime control and 64-bit AXI4-Stream slave with TVALID/TREADY backpressure handshaking.</li>
+                </ul>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Target Spec</th>
+                            <th>Verified Silicon Metric</th>
+                            <th>Sign-off Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Worst Negative Slack (WNS)</td>
+                            <td>&ge; 0.00 ns</td>
+                            <td class="val">+7.079 ns (Fast Corner: +0.152 ns)</td>
+                            <td>✅ Zero Violations</td>
+                        </tr>
+                        <tr>
+                            <td>Maximum Frequency (f_max)</td>
+                            <td>100 MHz</td>
+                            <td class="val">~342.3 MHz (2.92 ns critical path)</td>
+                            <td>✅ +242% Margin</td>
+                        </tr>
+                        <tr>
+                            <td>Total On-Chip Power</td>
+                            <td>&lt; 150 mW</td>
+                            <td class="val">97 mW (26 mW Dynamic, 70 mW Static)</td>
+                            <td>✅ Ultra-Low Power</td>
+                        </tr>
+                        <tr>
+                            <td>Cell Utilization</td>
+                            <td>&lt; 500 LUTs</td>
+                            <td class="val">202 Logic LUTs (0.97%), 32 FFs, 37 CARRY4</td>
+                            <td>✅ High Density</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PROJECT 2: ADAPTIVE AI ALU -->
+            <div class="project-card" data-category="cpu asic">
+                <div class="card-top">
+                    <div class="card-tags">
+                        <span class="tag">ASIC SILICON LAYOUT</span>
+                        <span class="tag green">108 BOND PADS</span>
+                        <span class="tag purple">CADENCE / KLAYOUT VERIFIED</span>
+                    </div>
+                </div>
+                <h3>32-Bit Workload-Adaptive ALU with Full ASIC GDSII Silicon Layout</h3>
+                <p>
+                    A low-power dual-mode processor arithmetic execution core designed for edge mobile SoCs. 
+                    Combines dynamic 16-bit operand isolation to cut transistor switching activity on small integers with a 
+                    <strong>4-lane INT8 SIMD vector dot-product engine</strong> and hardware ReLU.
+                </p>
+
+                <ul class="highlights">
+                    <li><strong>Dynamic Operand Isolation:</strong> Architectural zero/sign detection gates upper 16-bit combinational logic paths whenever inputs fit in 16 bits, slashing dynamic switching power by up to 50%.</li>
+                    <li><strong>Full-Custom GDSII Silicon Layout:</strong> Generated in <strong>KLayout 0.30.12</strong> featuring a 400&mu;m &times; 400&mu;m die boundary, 108 peripheral bond pads, dual concentric VDD/VSS power rings (Metal 4 &amp; 5), and standard cell macro partitions.</li>
+                    <li><strong>FPGA Physical Verification:</strong> Placed and routed on AMD Artix-7 silicon with 107 mW total power (36 mW dynamic), 689 Slice LUTs, and zero failing endpoints at 100 MHz.</li>
+                </ul>
+            </div>
+
+            <!-- PROJECT 3: 2D SYSTOLIC ARRAY -->
+            <div class="project-card" data-category="ai">
+                <div class="card-top">
+                    <div class="card-tags">
+                        <span class="tag">SPATIAL COMPUTE</span>
+                        <span class="tag green">GOOGLE TPU ARCHITECTURE</span>
+                        <span class="tag purple">CLOCK REGION X0Y0</span>
+                    </div>
+                </div>
+                <h3>2D Weight-Stationary Systolic Array Mesh Core</h3>
+                <p>
+                    A 2D spatial systolic matrix multiplication core based on Google TPU architecture. 
+                    Activations stream horizontally while partial sums propagate vertically across a grid of Processing Elements (PEs) featuring time-skewing pipeline alignment registers.
+                </p>
+
+                <ul class="highlights">
+                    <li><strong>Spatial Wavefront Pipelining:</strong> Integrated D-flip-flop skewing registers ensure proper alignment between horizontal activation wavefronts and vertical partial sums.</li>
+                    <li><strong>Clean Silicon Placement:</strong> Tightly packed in clock region <strong>X0Y0</strong> on Artix-7 silicon, achieving 102 mW total power (32 mW dynamic) with minimal routing parasitic overhead.</li>
+                </ul>
+            </div>
+
+            <!-- IN-FLIGHT / UPCOMING SLOT -->
+            <div class="upcoming-card">
+                <h4>🚀 In-Flight Silicon R&amp;D (Next Roadmap Builds)</h4>
+                <p>
+                    Currently micro-architecting a <strong>5-stage Pipelined RV32IM RISC-V Core with Integrated AXI4 Master Interconnect</strong> to interface directly with the TITAN-SPARSE NPU for compiled C neural network execution.
+                </p>
+            </div>
+        </section>
+
+        <!-- Technical Competencies -->
+        <section id="skills" style="margin-bottom: 70px;">
+            <div class="controls-row">
+                <h2>Technical Competencies &amp; EDA Toolchains</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <h4>⚡ HDLs &amp; Verification</h4>
+                    <div class="tag-wrap">
+                        <span class="s-tag">SystemVerilog (IEEE 1800)</span>
+                        <span class="s-tag">Verilog HDL</span>
+                        <span class="s-tag">Cocotb (Python DV)</span>
+                        <span class="s-tag">UVM Verification</span>
+                        <span class="s-tag">Self-Checking Testbenches</span>
+                        <span class="s-tag">Assertions (SVA)</span>
+                    </div>
+                </div>
+                <div class="skill-box">
+                    <h4>🛠️ Silicon EDA Tools</h4>
+                    <div class="tag-wrap">
+                        <span class="s-tag">AMD Vivado (Design Suite 2026.1)</span>
+                        <span class="s-tag">KLayout (GDSII Layout)</span>
+                        <span class="s-tag">OpenLane / OpenROAD Flow</span>
+                        <span class="s-tag">Verilator (C++ Simulation)</span>
+                        <span class="s-tag">GTKWave / Surfer</span>
+                        <span class="s-tag">SkyWater 130nm PDK</span>
+                    </div>
+                </div>
+                <div class="skill-box">
+                    <h4>📐 Architectures &amp; Protocols</h4>
+                    <div class="tag-wrap">
+                        <span class="s-tag">AMBA AXI4-Lite</span>
+                        <span class="s-tag">AMBA AXI4-Stream</span>
+                        <span class="s-tag">2:4 Structured Sparsity</span>
+                        <span class="s-tag">Ping-Pong Double Buffers</span>
+                        <span class="s-tag">Systolic Arrays</span>
+                        <span class="s-tag">Operand Isolation</span>
+                    </div>
+                </div>
+                <div class="skill-box">
+                    <h4>🔬 Physical Design &amp; STA</h4>
+                    <div class="tag-wrap">
+                        <span class="s-tag">Static Timing Analysis (STA)</span>
+                        <span class="s-tag">WNS / TNS Timing Closure</span>
+                        <span class="s-tag">Clock Tree Synthesis (CTS)</span>
+                        <span class="s-tag">Power Ring Floorplanning</span>
+                        <span class="s-tag">DRC &amp; LVS Rule Checking</span>
+                        <span class="s-tag">Vectorless Power Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" style="margin-bottom: 70px;">
+            <div class="project-card" style="padding: 30px;">
+                <h3 style="margin-bottom: 14px;">About Mohammed Abdullah</h3>
+                <p>
+                    I am an Electronics &amp; Communication Engineering student at <strong>MVSR Engineering College (Class of 2028)</strong>, dedicated to advancing digital silicon design. 
+                    Rather than building basic classroom-level circuits, I focus on solving the real engineering bottlenecks faced by semiconductor leaders like <strong>NVIDIA, Qualcomm, AMD, and Apple</strong>—specifically the <em>Memory Wall</em> and <em>sub-5nm energy dissipation</em>.
+                </p>
+                <p style="margin-top: 10px;">
+                    Every architecture in my portfolio is taken through the full engineering rigor: from microarchitectural specification and mathematical modeling to synthesizable SystemVerilog, corner-case simulation, static timing closure, and physical GDSII layout.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Designed and Built by <strong>Mohammed Abdullah</strong> &bull; B.E. ECE (Class of 2028)</p>
+            <p style="margin-top: 8px;">Targeting Global Silicon Architecture &amp; Digital Design Roles.</p>
+            <p style="margin-top: 12px;">
+                <a href="mailto:abdullahclass399@gmail.com">Email</a> &bull; 
+                <a href="https://github.com/abdullaah0309">GitHub</a> &bull; 
+                <a href="https://www.linkedin.com/in/abdullah-ece-mvsr">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Filter Script -->
+    <script>
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                const cats = card.getAttribute('data-category');
+                if (!cats) return;
+                if (category === 'all' || cats.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
